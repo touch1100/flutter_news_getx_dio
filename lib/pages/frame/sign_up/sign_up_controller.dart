@@ -6,7 +6,7 @@ import 'package:news/common/widgets/toast.dart';
 import 'package:news/pages/frame/sign_up/sign_up_provider.dart';
 import 'package:news/pages/frame/sign_up/state.dart';
 
-class SignUpController extends SuperController{
+class SignUpController extends SuperController {
   SignUpProvider provider;
   final SignUpState state = SignUpState();
 
@@ -20,10 +20,12 @@ class SignUpController extends SuperController{
   handleNavSignUpPop() {
     Get.back();
   }
+
   // 提示信息
   handleSignUpTip() {
     toastInfo(msg: '这是注册界面');
   }
+
   // 忘记密码
   handleFogotPassword() {
     toastInfo(msg: '忘记密码');
@@ -31,31 +33,31 @@ class SignUpController extends SuperController{
 
   // 执行注册操作
   handleSignUp() async {
-    // if (!duCheckStringLength(fullnameController.value.text, 5)) {
-    //   toastInfo(msg: '用户名不能小于5位');
-    //   return;
-    // }
-    // if (!duIsEmail(emailController.value.text)) {
-    //   toastInfo(msg: '请正确输入邮件');
-    //   return;
-    // }
-    // if (!duCheckStringLength(passController.value.text, 6)) {
-    //   toastInfo(msg: '密码不能小于6位');
-    //   return;
-    // }
+    if (fullnameController.value.text.isEmpty) {
+      toastInfo(msg: '用户名不能为空');
+      return;
+    }
+    if (emailController.value.text.isEmpty) {
+      toastInfo(msg: '邮件不能为空');
+      return;
+    }
+    if (passController.value.text.isEmpty) {
+      toastInfo(msg: '密码不能为空');
+      return;
+    }
 
     UserRegisterRequestEntity params = UserRegisterRequestEntity(
       email: emailController.value.text,
       password: duSHA256(passController.value.text),
     );
     signUp(params);
-
   }
-  Future<void> signUp(UserRegisterRequestEntity params) async{
+
+  Future<void> signUp(UserRegisterRequestEntity params) async {
     final Response response = await provider.register(params);
-    if(response.hasError){
+    if (response.hasError) {
       change(null, status: RxStatus.error(response.statusText));
-    }else{
+    } else {
       change(state, status: RxStatus.success());
       Get.back();
     }
@@ -80,5 +82,4 @@ class SignUpController extends SuperController{
   void onResumed() {
     // TODO: implement onResumed
   }
-
 }
