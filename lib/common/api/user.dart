@@ -1,4 +1,4 @@
-import 'package:news/common/entity/user_model.dart';
+import 'package:news/common/entity/user_models.dart';
 import 'package:news/common/utils/http.dart';
 import 'package:news/common/values/server.dart';
 

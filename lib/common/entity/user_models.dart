@@ -1,11 +1,11 @@
 import 'package:json_annotation/json_annotation.dart';
 
-part 'user_model.g.dart';
+part 'user_models.g.dart';
 
 @JsonSerializable()
 class UserModel {
-   String email;
-   String password;
+  String email;
+  String password;
 
   UserModel(this.email, this.password);
 
@@ -15,6 +15,22 @@ class UserModel {
   Map<String, dynamic> toJson() => _$UserModelToJson(this);
 }
 
+@JsonSerializable()
+class UserRegisterRequestEntity {
+  String email;
+  String password;
+
+  UserRegisterRequestEntity({
+    required this.email,
+    required this.password,
+  });
+
+  factory UserRegisterRequestEntity.fromJson(Map<String, dynamic> json) =>
+      _$UserRegisterRequestEntityFromJson(json);
+
+  Map<String, dynamic> toJson() => _$UserRegisterRequestEntityToJson(this);
+}
+
 // 登录请求
 @JsonSerializable()
 class UserLoginRequestEntity {
@@ -22,8 +38,8 @@ class UserLoginRequestEntity {
   String password;
 
   UserLoginRequestEntity(
-     this.email,
-     this.password,
+    this.email,
+    this.password,
   );
 
   factory UserLoginRequestEntity.fromJson(Map<String, dynamic> json) =>
@@ -31,6 +47,7 @@ class UserLoginRequestEntity {
 
   Map<String, dynamic> toJson() => _$UserLoginRequestEntityToJson(this);
 }
+
 // 登录返回
 @JsonSerializable()
 class UserLoginResponseEntity {
@@ -45,7 +62,7 @@ class UserLoginResponseEntity {
   });
 
   factory UserLoginResponseEntity.fromJson(Map<String, dynamic> json) =>
-     _$UserLoginResponseEntityFromJson(json);
+      _$UserLoginResponseEntityFromJson(json);
 
   Map<String, dynamic> toJson() => _$UserLoginResponseEntityToJson(this);
 }

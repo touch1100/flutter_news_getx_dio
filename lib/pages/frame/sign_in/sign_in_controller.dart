@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:news/common/api/user.dart';
-import 'package:news/common/entity/user_model.dart';
+import 'package:news/common/entity/user_models.dart';
 import 'package:news/common/routes/app_route.dart';
 import 'package:news/common/utils/security.dart';
 import 'package:news/common/widgets/toast.dart';

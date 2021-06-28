@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:news/common/values/colors.dart';
+import 'package:news/common/widgets/transparent_app_bar.dart';
 import 'package:news/pages/application/application_controller.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:news/pages/frame/category/category_page.dart';
@@ -42,21 +43,6 @@ class ApplicationPage extends GetView<ApplicationController> {
                 color: AppColors.primaryText,
               ))
         ]);
-  }
-
-  AppBar transparentAppBar(
-      {Widget? title, Widget? leading, List<Widget>? actions}) {
-    return AppBar(
-      backgroundColor: Colors.transparent,
-      elevation: 0,
-      title: title != null
-          ? Center(
-              child: title,
-            )
-          : null,
-      leading: leading,
-      actions: actions,
-    );
   }
 
   Widget _buildBottomNavigationBar() {

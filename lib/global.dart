@@ -4,7 +4,7 @@ import 'package:device_info/device_info.dart';
 import 'package:flutter/material.dart';
 import 'package:package_info/package_info.dart';
 
-import 'common/entity/user_model.dart';
+import 'common/entity/user_models.dart';
 import 'common/utils/http.dart';
 import 'common/utils/storage.dart';
 import 'common/values/storage.dart';

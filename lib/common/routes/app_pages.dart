@@ -8,6 +8,8 @@ import 'package:news/pages/frame/category/bindings.dart';
 import 'package:news/pages/frame/home/bindings.dart';
 import 'package:news/pages/frame/sign_in/sign_in.dart';
 import 'package:news/pages/frame/sign_in/bindings.dart';
+import 'package:news/pages/frame/sign_up/bindings.dart';
+import 'package:news/pages/frame/sign_up/sign_up_page.dart';
 import 'package:news/pages/frame/welcome/bindings.dart';
 import 'package:news/pages/frame/welcome/welcome.dart';
 
@@ -27,9 +29,17 @@ class AppPages {
         page: () => SignInPage(),
         binding: SignInBinding()),
     GetPage(
+        name: AppRoutes.SIGN_UP,
+        page: () => SignUpPage(),
+        binding: SignUpBinding()),
+    GetPage(
         name: AppRoutes.APPLICATION,
         page: () => ApplicationPage(),
-        bindings: [ApplicationBinding(),NewsStateMixinBinding(), HomeStateBinding()],
+        bindings: [
+          ApplicationBinding(),
+          NewsStateMixinBinding(),
+          HomeStateBinding()
+        ],
         middlewares: [
           RouteAuthMiddleware(priority: 1),
         ]),
