@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:news/common/api/news_api.dart';
 import 'package:news/common/entity/category_response_entity.dart';
 import 'package:news/common/entity/news_model.dart';
 import 'package:news/pages/frame/home/home_state.dart';
@@ -52,7 +53,7 @@ class HomeController extends SuperController<HomeStates> with ScrollMixin{
     state!.selCategoryCode = categoryCode;
     // provider.getRecommend();
     recommendController.getRecommend();
-    channelController.getChannel();
+    NewsApi.getChannel(channelController, provider);
     newsController.getNews(false);
   }
 
@@ -95,7 +96,7 @@ class HomeController extends SuperController<HomeStates> with ScrollMixin{
     // TODO: implement onTopScroll
     print('onTopScroll');
     recommendController.getRecommend();
-    channelController.getChannel();
+    NewsApi.getChannel(channelController, provider);
     newsController.getNews(false);
   }
 }

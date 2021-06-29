@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:news/common/api/news_api.dart';
 import 'package:news/common/entity/news_model.dart';
 import 'package:news/pages/frame/home/home_provider.dart';
 import 'package:news/pages/frame/home/home_state.dart';
@@ -10,24 +11,24 @@ class ChannelController extends SuperController<HomeStates> {
     value = HomeStates();
   }
 
-  Future<void> getChannel() async {
-    final Response response = await provider.getChannelResponse();
-    if (response.hasError) {
-      change(null, status: RxStatus.error(response.statusText));
-    } else {
-      state!.channel = response.body
-          .map<ChannelResponseEntity>(
-              (item) => ChannelResponseEntity.fromJson(item))
-          .toList();
-      change(state, status: RxStatus.success());
-    }
-  }
+  // Future<void> getChannel() async {
+  //   final Response response = await provider.getChannelResponse();
+  //   if (response.hasError) {
+  //     change(null, status: RxStatus.error(response.statusText));
+  //   } else {
+  //     state!.channel = response.body
+  //         .map<ChannelResponseEntity>(
+  //             (item) => ChannelResponseEntity.fromJson(item))
+  //         .toList();
+  //     change(state, status: RxStatus.success());
+  //   }
+  // }
 
   @override
   void onInit() {
     // TODO: implement onInit
     super.onInit();
-    getChannel();
+    NewsApi.getChannel(this, provider);
   }
 
   @override

@@ -46,6 +46,7 @@ class ApplicationController extends SuperController {
             color: AppColors.secondaryElementText,
           )),
           label: 'main',
+          tooltip: '',
           backgroundColor: AppColors.primaryBackground),
       new BottomNavigationBarItem(
         icon: Icon(
@@ -57,6 +58,7 @@ class ApplicationController extends SuperController {
           color: AppColors.secondaryElementText,
         ),
         label: 'category',
+        tooltip: '',
         backgroundColor: AppColors.primaryBackground,
       ),
       new BottomNavigationBarItem(
@@ -69,6 +71,7 @@ class ApplicationController extends SuperController {
           color: AppColors.secondaryElementText,
         ),
         label: 'tag',
+        tooltip: '',
         backgroundColor: AppColors.primaryBackground,
       ),
       new BottomNavigationBarItem(
@@ -81,6 +84,7 @@ class ApplicationController extends SuperController {
           color: AppColors.secondaryElementText,
         ),
         label: 'my',
+        tooltip: '',
         backgroundColor: AppColors.primaryBackground,
       )
     ];
